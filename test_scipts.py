@@ -63,6 +63,6 @@ def test_max_post_500_2():
 def test_comment_fields():
   commentid = random.randint(1,500)
   expected_fields = {"postId", "id", "name", "email", "body"}
-  response = requests.get(f'https://jsonplaceholder.typicode.com/posts/{commentid}')
+  response = requests.get(f'https://jsonplaceholder.typicode.com/comments/{commentid}')
   assert expected_fields == set(response.json().keys())
 
