@@ -24,12 +24,15 @@ for comment in all_comments:
 #pprint(response.headers)
 #pprint(response.json())
 
+comment_to_update = None
 for comment in all_comments:
     if comment['id'] == 6:
         comment["body"] = "New Body"
-        print(ids_dict.items())
+        comment_to_update = comment
+print(comment_to_update['id'])
+response = requests.put('https://jsonplaceholder.typicode.com/comments/'+ str(comment_to_update['íd']), comment_to_update)
 
-reponse = requests.put('https://jsonplaceholder.typicode.com/comments/6', ids_dict)
-print(reponse.status_code)
+print(response.json())
+t = 1
 
 

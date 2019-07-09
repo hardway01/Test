@@ -16,11 +16,16 @@ import requests
 #testscript1: check if max post is 100
 #testscript2: check if all fields(keys) are there
 #testscript3: create new post
-#testscript4: check if title (f id 3 is correct
+#testscript4: check if title exists in post
 #comment
 #testscript5: Check if max comment is 500
-#testscript6: Check if all fields(keys are there
+#testscript6: Check if all fields(keys) are there
 #testscript7: create new comment
+#testscript8: check email in comment
+#albums
+#testscript1: check if max albums is 100
+#Delete album 2
+
 
 
 
@@ -91,3 +96,7 @@ def test_max_albums_100():
 def test_max_albums_100_2():
   response = requests.get('https://jsonplaceholder.typicode.com/albums/101')
   assert response.status_code == 404
+
+def test_delete_album():
+  response = requests.delete('https://jsonplaceholder.typicode.com/albums/2')
+  assert response.json() == {}
